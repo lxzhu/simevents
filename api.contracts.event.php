@@ -38,9 +38,42 @@ class EventStartResponse{}
 #结束活动
 class EventFinishRequest{}
 class EventFinishResponse{}
+class EventFinish{}
 
 #取消活动
 class EventCancelRequest{}
 class EventCancelResponse{}
 
+
+#关闭活动,活动关闭后,不能在接受评论
+class EventCloseRequest{}
+class EventCloseResponse{}
+
+#发表评论
+class EventAddCommentRequest{}
+class EventAddCommentResponse{}
+
+#搜索评论
+class EventSearchCommentRequest{}
+class EventSearchCommentResponse{}
+
+#设置评价主题
+class EventAddRateTopicRequest{}
+class EventAddRateTopicResponse{}
+
+#获取评价主题
+class EventSearchRateTopicRequest{}
+class EventSearchRateTopicResponse{}
+
+#设置评价
+class EventSetRateRequest{}
+class EventSetRateResponse{}
+
+#设置标签
+class EventSetTagRequest{}
+class EventSetTagResponse{}
+
+#获取标签
+class EventSearchTagRequest{}
+class EventSearchTagResponse{}
 ?>
