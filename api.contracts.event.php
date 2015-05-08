@@ -49,6 +49,10 @@ class EventCancelResponse{}
 class EventCloseRequest{}
 class EventCloseResponse{}
 
+#删除活动,活动删除后，将不能显示
+class EventDeleteRequest{}
+class EventDeleteResponse{}
+
 #发表评论
 class EventAddCommentRequest{}
 class EventAddCommentResponse{}
