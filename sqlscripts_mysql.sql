@@ -10,40 +10,40 @@ create table wp_user(
 create table wp_user_profile(
 	user_id bigint not null, #用户ID
 	display_name nvarchar(100) not null, #界面显示的名字
-  subdomain_name nvarchar(100) not null,#系统URL中使用的域名
-  emotion nvarchar(100),#心情
-  description nvarchar(4000),#个人介绍
-  image_media_id bigint,#图像
-  mobile nvarchar(32),#电话号码
-  email nvarchar(100),#电子邮件
+  	subdomain_name nvarchar(100) not null,#系统URL中使用的域名
+  	emotion nvarchar(100),#心情
+  	description nvarchar(4000),#个人介绍
+  	image_media_id bigint,#图像
+  	mobile nvarchar(32),#电话号码
+  	email nvarchar(100),#电子邮件
 	mobile_verified bit not null default 0, #电话是否已经验证
 	email_verified bit not null default 0 #邮件是否已经验证
 );
 
 #用户联系方式验证
 create table wp_user_contact_verify(
-  user_id bigint not null,
-  verify_type nvarchar(20) not null, #验证类型,可选值为"mobile"和"email"
-  verify_code nvarchar(36) not null,#验证码, 如果type是"mobile",验证码通常为8位数字，如果是email,验证码通常为GUID.
-  create_date_time datetime not null, #提交验证申请的时间
-  expire_date_time datetime  #该验证过期的时间,用户必须在这个时间点之前通过验证.
+  	user_id bigint not null,
+  	verify_type nvarchar(20) not null, #验证类型,可选值为"mobile"和"email"
+  	verify_code nvarchar(36) not null,#验证码, 如果type是"mobile",验证码通常为8位数字，如果是email,验证码通常为GUID.
+  	create_date_time datetime not null, #提交验证申请的时间
+  	expire_date_time datetime  #该验证过期的时间,用户必须在这个时间点之前通过验证.
 );
 
 #用户密码重置的验证
 create table wp_user_password_reset(
-  user_id bigint not null,
-  reset_type nvarchar(20) not null, #验证类型，可选值为"mobile"和"email"
-  reset_code nvarchar(36) not null, #验证代码,参考wp_user_contact_verify
-  create_date_time datetime not null,
-  expire_date_time datetime
+  	user_id bigint not null,
+  	reset_type nvarchar(20) not null, #验证类型，可选值为"mobile"和"email"
+  	reset_code nvarchar(36) not null, #验证代码,参考wp_user_contact_verify
+  	create_date_time datetime not null,
+  	expire_date_time datetime
 );
 #用户的其它社交账号
 create table wp_social_account(
-  social_account_id bigint auto_increment primary key,
-  user_id bigint,
-  account_type nvarchar(100),
-  account_name nvarchar(100),
-  create_date_time not null
+  	social_account_id bigint auto_increment primary key,
+  	user_id bigint,
+  	account_type nvarchar(100),
+  	account_name nvarchar(100),
+  	create_date_time not null
 );
 
 #简单的地址管理
@@ -57,21 +57,21 @@ create table wp_address(
 
 #多媒体,图片等
 create table wp_media(
-  media_id bigint auto_increment primary key,
-  type int not null,
-  name nvarchar(100) not null,
-  content varbinary(max) not null,
-  create_date_time datetime
+  	media_id bigint auto_increment primary key,
+  	type int not null,
+  	name nvarchar(100) not null,
+  	content varbinary(max) not null,
+  	create_date_time datetime
 );
 
 #小组
 create table wp_group(
-  group_id bigint auto_increment primary key,
-  name nvarchar(100) not null,
-  description nvarchar(4000) not null,
-  address_id bigint,
-  create_user_id bigint,
-  create_date_time datetime
+  	group_id bigint auto_increment primary key,
+  	name nvarchar(100) not null,
+  	description nvarchar(4000) not null,
+  	address_id bigint,
+  	create_user_id bigint,
+  	create_date_time datetime
 );
 
 #小组成员
